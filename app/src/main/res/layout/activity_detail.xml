@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorAccent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/message_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@drawable/bg_list_row">
+
+            <ImageView
+                android:id="@+id/img_profile"
+                android:layout_width="@dimen/icon_width_height"
+                android:layout_height="@dimen/icon_width_height"
+                app:srcCompat="@drawable/ic_no_image" />
+
+
+            <ImageView
+                android:id="@+id/img_accessable"
+                android:layout_width="@dimen/margin12"
+                android:layout_height="@dimen/margin12"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/margin20"
+                android:layout_marginTop="@dimen/margin10"
+                android:src="@drawable/bg_circle_green"
+                android:visibility="invisible" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/img_accessable"
+                android:layout_toRightOf="@+id/img_profile"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/padding20">
+
+                <TextView
+                    android:id="@+id/routeName"
+                    style="@style/App_Textview_Heading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="@dimen/padding_list_row"
+                    android:text="Test" />
+
+                <TextView
+                    android:id="@+id/description"
+                    style="@style/App_Textview_Content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="@dimen/padding_list_row"
+                    android:text="Maheswaran" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin10"
+            android:scrollbars="vertical" />
+
+    </LinearLayout>
+</RelativeLayout>
