@@ -1,5 +1,4 @@
 package com.org.busroute.adapter;
-
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.HapticFeedbackConstants;
@@ -9,12 +8,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.org.busroute.R;
 import com.org.busroute.model.Route;
-
 import java.util.List;
 /**
  * This  is RouteAdapter

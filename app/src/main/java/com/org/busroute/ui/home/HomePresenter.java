@@ -43,7 +43,6 @@ public class HomePresenter implements IHomePresenter {
                     public void onNext(BusRoute routesList) {
                         homeView.hideProgress();
                         homeView.getRoutesSuccess(routesList);
-                       /* System.out.println(TAG + "--->" + new Gson().toJson(routesList));*/
                     }
                 });
     }
