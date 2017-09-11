@@ -3,11 +3,11 @@ import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.org.busroute.model.BusRoute;
-
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Observable;
+
 /**
  * This  is ApiClient
  */
@@ -26,6 +26,7 @@ public class ApiClient {
         gitHubService = retrofit.create(ApiInterface.class);
     }
 
+    /*singleton of Apiclient*/
     public static ApiClient getInstance() {
         if (instance == null) {
             instance = new ApiClient();
@@ -33,6 +34,7 @@ public class ApiClient {
         return instance;
     }
 
+    /*To get the route list*/
     public Observable<BusRoute> getRoutes() {
         return gitHubService.getRoutes();
     }

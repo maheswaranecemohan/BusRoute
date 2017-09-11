@@ -8,7 +8,7 @@ import rx.Observable;
  */
 public interface ApiInterface {
 
+    /*interface to get available route list*/
     @GET("v2/5808f00d10000005074c6340")
     Observable<BusRoute>  getRoutes();
-
 }

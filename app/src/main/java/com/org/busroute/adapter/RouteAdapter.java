@@ -71,6 +71,7 @@ public class RouteAdapter extends RecyclerView.Adapter<RouteAdapter.MyViewHolder
         applyClickEvents(holder, position);
     }
 
+    /*Click event for RecyclerView item*/
     private void applyClickEvents(MyViewHolder holder, final int position) {
         holder.messageContainer.setOnClickListener(new View.OnClickListener() {
             @Override

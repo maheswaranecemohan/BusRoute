@@ -12,7 +12,7 @@ import com.org.busroute.R;
 import com.org.busroute.adapter.RouteAdapter;
 import com.org.busroute.model.BusRoute;
 import com.org.busroute.model.Route;
-import com.org.busroute.ui.detial.DetailActivity;
+import com.org.busroute.ui.detail.DetailActivity;
 import com.org.busroute.utils.Connectivity;
 import com.org.busroute.utils.ToastUtils;
 import java.util.ArrayList;
@@ -35,7 +35,6 @@ public class HomeActivity extends AppCompatActivity implements IHomeView, RouteA
         setContentView(R.layout.activity_home);
         ctx = HomeActivity.this;
         homePresenter = new HomePresenter(this);
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         routeAdapter = new RouteAdapter(this, busRoutesList, this);
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
@@ -59,7 +58,7 @@ public class HomeActivity extends AppCompatActivity implements IHomeView, RouteA
     }
 
     private void getRoutes() {
-
+        /*check the internet or mobile data is available*/
         if (Connectivity.isConnected(getApplicationContext())) {
             homePresenter.getRoutes();
         } else {
@@ -67,7 +66,7 @@ public class HomeActivity extends AppCompatActivity implements IHomeView, RouteA
             ToastUtils.showToast(ctx, getString(R.string.please_check_your_internet_connection));
         }
     }
-
+    /*it will return the route list that available*/
     @Override
     public void getRoutesSuccess(BusRoute routesList) {
         busRoutesList.clear();
@@ -75,24 +74,26 @@ public class HomeActivity extends AppCompatActivity implements IHomeView, RouteA
         routeAdapter.notifyDataSetChanged();
 
     }
-
+    /*It will be triggered during network issue or error*/
     @Override
     public void getRoutesFailed(String failed) {
         ToastUtils.showToast(this, failed);
     }
 
+    /*To dismiss the progress bar*/
     @Override
     public void showProgress() {
         if (!swipeRefreshLayout.isRefreshing())
             swipeRefreshLayout.setRefreshing(true);
     }
-
+    /*To show the progress bar*/
     @Override
     public void hideProgress() {
         if (swipeRefreshLayout.isRefreshing())
             swipeRefreshLayout.setRefreshing(false);
     }
 
+    /* It will return clicked position of recyclerview*/
     @Override
     public void onRouteRowClicked(int position) {
         Intent intent = new Intent(getBaseContext(), DetailActivity.class);
@@ -106,7 +107,7 @@ public class HomeActivity extends AppCompatActivity implements IHomeView, RouteA
         startActivity(intent);
         overridePendingTransition(R.anim.move_right_in_activity, R.anim.move_left_out_activity);
     }
-
+    /*For pulltorefresh*/
     @Override
     public void onRefresh() {
         getRoutes();
